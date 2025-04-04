@@ -4,23 +4,49 @@ import { companyData } from '../data/data.js';
 const { stats } = companyData;
 ---
 
-<section id="estadisticas" class="py-20 bg-white text-white relative">
-  <div class="absolute inset-0 bg-primary rounded-b-[30px]"></div>
-  <div class="container mx-auto px-6">
+<section id="estadisticas" class="py-24 relative overflow-hidden">
+  <!-- Fondo con gradiente y patrón -->
+  <div class="absolute inset-0 bg-gradient-to-br from-primary via-primary to-secondary"></div>
+  <div class="absolute inset-0 bg-noise opacity-[0.15]"></div>
+  
+  <!-- Formas decorativas -->
+  <div class="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+
+  <div class="container mx-auto px-6 relative z-10">
+    <!-- Encabezado -->
     <div class="text-center mb-16">
-      <h2 class="text-4xl font-bold mb-4 stats-title">Nuestro Impacto</h2>
-      <p class="text-xl text-white/80 max-w-3xl mx-auto stats-subtitle">
-        Cifras que demuestran nuestro compromiso con la excelencia
+      <div class="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-6 py-2 mb-6">
+        <span class="w-2 h-2 bg-white rounded-full mr-2"></span>
+        <span class="text-white/90 text-sm font-medium">Resultados Comprobados</span>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-bold mb-6 text-white stats-title">
+        Nuestro Impacto en Números
+      </h2>
+      <p class="text-xl text-white/80 max-w-3xl mx-auto stats-subtitle font-light">
+        Cifras que demuestran nuestro compromiso con la excelencia y la innovación tecnológica
       </p>
     </div>
     
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <!-- Grid de estadísticas -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
       {stats.map((stat, index) => (
-        <div class="text-center stat-card" data-index={index}>
-          <div class="text-5xl font-bold mb-2 stat-value" data-value={stat.value}>
-            0
+        <div class="relative group">
+          <div class="stat-card bg-white/10 backdrop-blur-md rounded-2xl p-8 text-center border border-white/10 transition-all duration-300">
+            <!-- Valor de la estadística -->
+            <div class="relative">
+              <div class="text-5xl lg:text-6xl font-bold mb-4 stat-value bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent" data-value={stat.value}>
+                0
+              </div>
+              <!-- Línea decorativa -->
+              <div class="w-12 h-1 bg-white/20 mx-auto mb-4 rounded-full group-hover:w-16 transition-all duration-300"></div>
+            </div>
+            
+            <!-- Etiqueta -->
+            <div class="text-lg text-white/80 stat-label font-light">
+              {stat.label}
+            </div>
           </div>
-          <div class="text-xl text-white/80 stat-label">{stat.label}</div>
         </div>
       ))}
     </div>
@@ -34,71 +60,70 @@ const { stats } = companyData;
   gsap.registerPlugin(ScrollTrigger);
   
   document.addEventListener('DOMContentLoaded', () => {
-    // Animate section title and subtitle
-    gsap.from('.stats-title', {
-      y: 50,
-      opacity: 0,
-      duration: 0.8,
+    // Animación del título y subtítulo
+    const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: '.stats-title',
+        trigger: '#estadisticas',
         start: 'top 80%',
         toggleActions: 'play none none reverse'
       }
     });
-    
-    gsap.from('.stats-subtitle', {
+
+    tl.from('.stats-title', {
       y: 30,
       opacity: 0,
-      duration: 0.8,
-      delay: 0.2,
-      scrollTrigger: {
-        trigger: '.stats-subtitle',
-        start: 'top 80%',
-        toggleActions: 'play none none reverse'
-      }
-    });
-    
-    // Animate stat cards
+      duration: 0.8
+    })
+    .from('.stats-subtitle', {
+      y: 20,
+      opacity: 0,
+      duration: 0.6
+    }, '-=0.4');
+
+    // Animación de las tarjetas de estadísticas
     const statCards = document.querySelectorAll('.stat-card');
     
     statCards.forEach((card, index) => {
-      gsap.from(card, {
-        y: 50,
+      gsap.from(card as HTMLElement, {
+        y: 30,
         opacity: 0,
         duration: 0.8,
-        delay: index * 0.2,
+        delay: index * 0.1,
+        ease: 'power2.out',
         scrollTrigger: {
           trigger: card,
-          start: 'top 80%',
+          start: 'top 85%',
           toggleActions: 'play none none reverse'
         }
       });
     });
+
+    // Animación de los valores
+    const statValues = document.querySelectorAll('.stat-value');
     
-    // Animate stat values
-    const statValues = document.querySelectorAll('.stat-value') as NodeListOf<HTMLElement>;
-    
-    statValues.forEach(stat => {
-      const targetValue = parseInt(stat.dataset.value || '0');
-      const duration = 2;
-      const steps = 60;
-      const stepValue = targetValue / steps;
-      let currentStep = 0;
+    statValues.forEach((stat) => {
+      const targetValue = parseInt((stat as HTMLElement).dataset.value || '0', 10);
+      const formattedStart = '0';
+      (stat as HTMLElement).textContent = formattedStart;
       
       ScrollTrigger.create({
         trigger: stat,
-        start: 'top 80%',
+        start: 'top 85%',
         onEnter: () => {
-          const interval = setInterval(() => {
-            currentStep++;
-            const currentValue = Math.round(stepValue * currentStep);
-            stat.textContent = currentValue.toLocaleString();
-            
-            if (currentStep >= steps) {
-              clearInterval(interval);
-              stat.textContent = targetValue.toLocaleString();
+          let value = { current: 0 };
+          
+          gsap.to(value, {
+            current: targetValue,
+            duration: 2,
+            ease: 'power2.out',
+            onUpdate: function() {
+              const currentValue = Math.round(value.current);
+              (stat as HTMLElement).textContent = currentValue.toLocaleString('es-ES');
             }
-          }, duration * 1000 / steps);
+          });
+        },
+        onLeaveBack: () => {
+          (stat as HTMLElement).textContent = '0';
         }
       });
     });
@@ -106,23 +131,23 @@ const { stats } = companyData;
 </script>
 
 <style>
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
   .stat-card {
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 1rem;
-    backdrop-filter: blur(10px);
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    transform: translateY(0);
+    will-change: transform;
   }
-  
+
   .stat-card:hover {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-4px);
+    background-color: rgba(255, 255, 255, 0.15);
   }
-  
-  .stat-value {
-    background: linear-gradient(45deg, #fff, #e2e8f0);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    .stat-card:hover {
+      transform: none;
+    }
   }
 </style> 

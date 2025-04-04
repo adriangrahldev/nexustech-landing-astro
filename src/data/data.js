@@ -145,6 +145,20 @@ export const companyData = {
       content: "Su equipo demostró un profundo conocimiento en ciberseguridad. Nos ayudaron a fortalecer significativamente nuestra postura de seguridad.",
       image: "/images/testimonials/ana-martinez.jpg"
     },
+    {
+      name: "Carlos Rodríguez",
+      position: "CTO",
+      company: "Digital Services Inc",
+      content: "La migración a la nube fue impecable. El equipo de NexusTech manejó todo el proceso con profesionalismo y eficiencia.",
+      image: "/images/testimonials/carlos-rodriguez.jpg"
+    },
+    {
+      name: "Laura Sánchez",
+      position: "Gerente de Operaciones",
+      company: "Logistics Pro",
+      content: "Las soluciones de automatización implementadas han mejorado nuestra eficiencia operativa en más de un 60%.",
+      image: "/images/testimonials/laura-sanchez.jpg"
+    }
   ],
 
   // Contacto y ubicación
