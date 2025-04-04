@@ -4,56 +4,75 @@ import { companyData } from '../data/data.js';
 const { contact } = companyData;
 ---
 
-<section id="contacto" class="py-20 bg-white relative">
-  <div class="absolute inset-0 bg-primary rounded-b-[30px]"></div>
-  <div class="container mx-auto px-6">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl font-bold mb-4 contact-title text-white">Contáctanos</h2>
-      <p class="text-xl text-white max-w-3xl mx-auto contact-subtitle">
-        Estamos aquí para ayudarte a transformar tu negocio
+<section id="contacto" class="py-32 relative overflow-hidden">
+  <!-- Fondo con gradiente y patrón -->
+  <div class="absolute inset-0 bg-gradient-to-br from-primary via-primary to-secondary"></div>
+  <div class="absolute inset-0 bg-noise opacity-[0.15]"></div>
+  
+  <!-- Formas decorativas -->
+  <div class="absolute top-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+
+  <div class="container mx-auto px-6 relative z-10">
+    <!-- Encabezado -->
+    <div class="text-center mb-20">
+      <div class="inline-flex items-center bg-white/10 backdrop-blur-sm rounded-full px-6 py-2 mb-6">
+        <svg class="w-5 h-5 text-white mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+        </svg>
+        <span class="text-white/90 text-sm font-medium">Contáctanos</span>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-bold mb-6 contact-title text-white">
+        ¿Listo para transformar tu negocio?
+      </h2>
+      <p class="text-xl text-white/80 max-w-3xl mx-auto contact-subtitle font-light">
+        Estamos aquí para ayudarte a alcanzar tus objetivos tecnológicos
       </p>
     </div>
     
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-      <div class="contact-info">
-        <div class="bg-gray-50 p-8 rounded-xl shadow-lg h-full">
-          <h3 class="text-2xl font-semibold mb-6">Información de Contacto</h3>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+      <!-- Información de contacto -->
+      <div class="contact-info space-y-8">
+        <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/10 transition-all duration-300">
+          <h3 class="text-2xl font-bold mb-8 text-white">
+            Información de Contacto
+          </h3>
           
-          <div class="space-y-6">
-            <div class="flex items-start">
-              <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div class="space-y-8">
+            <div class="flex items-start group">
+              <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mr-4 flex-shrink-0 transform group-hover:scale-110 transition-transform">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
                 </svg>
               </div>
               <div>
-                <h4 class="font-semibold mb-1">Teléfono</h4>
-                <p class="text-gray-600">{contact.phone}</p>
+                <h4 class="font-semibold mb-1 text-white">Teléfono</h4>
+                <p class="text-white/80 group-hover:text-white transition-colors">{contact.phone}</p>
               </div>
             </div>
             
-            <div class="flex items-start">
-              <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="flex items-start group">
+              <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mr-4 flex-shrink-0 transform group-hover:scale-110 transition-transform">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                 </svg>
               </div>
               <div>
-                <h4 class="font-semibold mb-1">Email</h4>
-                <p class="text-gray-600">{contact.email}</p>
+                <h4 class="font-semibold mb-1 text-white">Email</h4>
+                <p class="text-white/80 group-hover:text-white transition-colors">{contact.email}</p>
               </div>
             </div>
             
-            <div class="flex items-start">
-              <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                <svg class="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="flex items-start group">
+              <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mr-4 flex-shrink-0 transform group-hover:scale-110 transition-transform">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                 </svg>
               </div>
               <div>
-                <h4 class="font-semibold mb-1">Dirección</h4>
-                <p class="text-gray-600">
+                <h4 class="font-semibold mb-1 text-white">Dirección</h4>
+                <p class="text-white/80 group-hover:text-white transition-colors">
                   {contact.address.street}, {contact.address.city}, {contact.address.state} {contact.address.zipCode}, {contact.address.country}
                 </p>
               </div>
@@ -62,36 +81,48 @@ const { contact } = companyData;
         </div>
       </div>
       
+      <!-- Formulario de contacto -->
       <div class="contact-form">
-        <form id="contactForm" class="bg-white p-8 rounded-xl shadow-lg">
+        <form id="contactForm" class="bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/10 transition-all duration-300">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="form-group">
-              <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nombre</label>
-              <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-300" required>
-              <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
+            <div class="form-group relative">
+              <input type="text" id="name" name="name" class="peer w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:ring-2 focus:ring-white/20 focus:border-white/20 transition-colors duration-300 placeholder-transparent text-white" placeholder="Nombre" required>
+              <label for="name" class="absolute left-4 -top-2.5 bg-transparent px-2 text-sm text-white/80 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-white/60 peer-placeholder-shown:top-3 peer-focus:-top-6 peer-focus:left-0 peer-focus:text-sm peer-focus:text-white">
+                Nombre
+              </label>
+              <div class="error-message text-red-300 text-sm mt-1 hidden"></div>
             </div>
             
-            <div class="form-group">
-              <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-              <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-300" required>
-              <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
+            <div class="form-group relative">
+              <input type="email" id="email" name="email" class="peer w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:ring-2 focus:ring-white/20 focus:border-white/20 transition-colors duration-300 placeholder-transparent text-white" placeholder="Email" required>
+              <label for="email" class="absolute left-4 -top-2.5 bg-transparent px-2 text-sm text-white/80 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-white/60 peer-placeholder-shown:top-3 peer-focus:-top-6 peer-focus:left-0 peer-focus:text-sm peer-focus:text-white">
+                Email
+              </label>
+              <div class="error-message text-red-300 text-sm mt-1 hidden"></div>
             </div>
           </div>
           
-          <div class="form-group mt-6">
-            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Asunto</label>
-            <input type="text" id="subject" name="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-300" required>
-            <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
+          <div class="form-group relative mt-6">
+            <input type="text" id="subject" name="subject" class="peer w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:ring-2 focus:ring-white/20 focus:border-white/20 transition-colors duration-300 placeholder-transparent text-white" placeholder="Asunto" required>
+            <label for="subject" class="absolute left-4 -top-2.5 bg-transparent px-2 text-sm text-white/80 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-white/60 peer-placeholder-shown:top-3 peer-focus:-top-6 peer-focus:left-0 peer-focus:text-sm peer-focus:text-white">
+              Asunto
+            </label>
+            <div class="error-message text-red-300 text-sm mt-1 hidden"></div>
           </div>
           
-          <div class="form-group mt-6">
-            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Mensaje</label>
-            <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors duration-300" required></textarea>
-            <div class="error-message text-red-500 text-sm mt-1 hidden"></div>
+          <div class="form-group relative mt-6">
+            <textarea id="message" name="message" rows="4" class="peer w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl focus:ring-2 focus:ring-white/20 focus:border-white/20 transition-colors duration-300 placeholder-transparent text-white resize-none" placeholder="Mensaje" required></textarea>
+            <label for="message" class="absolute left-4 -top-2.5 bg-transparent px-2 text-sm text-white/80 transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-white/60 peer-placeholder-shown:top-3 peer-focus:-top-6 peer-focus:left-0 peer-focus:text-sm peer-focus:text-white">
+              Mensaje
+            </label>
+            <div class="error-message text-red-300 text-sm mt-1 hidden"></div>
           </div>
           
-          <button type="submit" class="mt-8 w-full bg-primary text-white py-3 px-6 rounded-lg font-medium hover:bg-primary-dark transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+          <button type="submit" class="mt-8 w-full bg-white text-primary py-4 px-6 rounded-xl font-medium hover:bg-white/90 active:bg-white/80 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary">
             Enviar Mensaje
+            <svg class="w-5 h-5 inline-block ml-2 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
           </button>
         </form>
       </div>
@@ -106,75 +137,62 @@ const { contact } = companyData;
   gsap.registerPlugin(ScrollTrigger);
   
   document.addEventListener('DOMContentLoaded', () => {
-    // Animate section title and subtitle
-    gsap.from('.contact-title', {
-      y: 50,
-      opacity: 0,
-      duration: 0.8,
+    // Animaciones de entrada
+    const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: '.contact-title',
+        trigger: '#contacto',
         start: 'top 80%',
         toggleActions: 'play none none reverse'
       }
     });
-    
-    gsap.from('.contact-subtitle', {
+
+    tl.from('.contact-title', {
       y: 30,
       opacity: 0,
-      duration: 0.8,
-      delay: 0.2,
-      scrollTrigger: {
-        trigger: '.contact-subtitle',
-        start: 'top 80%',
-        toggleActions: 'play none none reverse'
-      }
-    });
-    
-    // Animate contact info and form
-    gsap.from('.contact-info', {
+      duration: 0.8
+    })
+    .from('.contact-subtitle', {
+      y: 20,
+      opacity: 0,
+      duration: 0.6
+    }, '-=0.4')
+    .from('.contact-info', {
       x: -50,
       opacity: 0,
-      duration: 0.8,
-      scrollTrigger: {
-        trigger: '.contact-info',
-        start: 'top 80%',
-        toggleActions: 'play none none reverse'
-      }
-    });
-    
-    gsap.from('.contact-form', {
+      duration: 0.8
+    }, '-=0.2')
+    .from('.contact-form', {
       x: 50,
       opacity: 0,
-      duration: 0.8,
-      scrollTrigger: {
-        trigger: '.contact-form',
-        start: 'top 80%',
-        toggleActions: 'play none none reverse'
-      }
-    });
+      duration: 0.8
+    }, '-=0.6');
     
-    // Form validation
+    // Validación del formulario
     const form = document.getElementById('contactForm') as HTMLFormElement;
     const inputs = form.querySelectorAll('input, textarea') as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
     
-    function validateEmail(email) {
+    function validateEmail(email: string): boolean {
       const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return re.test(email);
     }
     
-    function showError(input, message) {
+    function showError(input: HTMLElement, message: string) {
       const formGroup = input.closest('.form-group');
-      const errorMessage = formGroup.querySelector('.error-message');
-      errorMessage.textContent = message;
-      errorMessage.classList.remove('hidden');
-      input.classList.add('border-red-500');
+      const errorMessage = formGroup?.querySelector('.error-message');
+      if (errorMessage) {
+        errorMessage.textContent = message;
+        errorMessage.classList.remove('hidden');
+      }
+      input.classList.add('border-red-300');
     }
     
-    function hideError(input) {
+    function hideError(input: HTMLElement) {
       const formGroup = input.closest('.form-group');
-      const errorMessage = formGroup.querySelector('.error-message');
-      errorMessage.classList.add('hidden');
-      input.classList.remove('border-red-500');
+      const errorMessage = formGroup?.querySelector('.error-message');
+      if (errorMessage) {
+        errorMessage.classList.add('hidden');
+      }
+      input.classList.remove('border-red-300');
     }
     
     inputs.forEach(input => {
@@ -206,36 +224,79 @@ const { contact } = companyData;
       });
       
       if (isValid) {
-        // Aquí iría la lógica para enviar el formulario
-        console.log('Formulario válido, enviando...');
+        const button = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+        if (button) {
+          button.disabled = true;
+          button.classList.add('opacity-75');
+          button.innerHTML = `
+            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            Enviando...
+          `;
+        }
+        
         // Simular envío exitoso
-        gsap.to(form, {
-          scale: 0.95,
-          duration: 0.1,
-          yoyo: true,
-          repeat: 1,
-          onComplete: () => {
-            form.reset();
-            alert('¡Mensaje enviado con éxito!');
-          }
-        });
+        setTimeout(() => {
+          gsap.to(form, {
+            scale: 0.98,
+            duration: 0.1,
+            yoyo: true,
+            repeat: 1,
+            onComplete: () => {
+              form.reset();
+              if (button) {
+                button.disabled = false;
+                button.classList.remove('opacity-75');
+                button.innerHTML = `
+                  Mensaje Enviado
+                  <svg class="w-5 h-5 inline-block ml-2 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                `;
+              }
+              
+              // Restaurar el botón después de 2 segundos
+              setTimeout(() => {
+                if (button) {
+                  button.innerHTML = `
+                    Enviar Mensaje
+                    <svg class="w-5 h-5 inline-block ml-2 -mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                  `;
+                }
+              }, 2000);
+            }
+          });
+        }, 1500);
       }
     });
   });
 </script>
 
 <style>
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
   .form-group input:focus,
   .form-group textarea:focus {
     outline: none;
   }
   
-  .form-group input.border-red-500,
-  .form-group textarea.border-red-500 {
-    border-color: #ef4444;
+  .form-group input.border-red-300,
+  .form-group textarea.border-red-300 {
+    border-color: #fca5a5;
   }
   
   .error-message {
     transition: opacity 0.3s ease;
+  }
+
+  /* Animación del botón */
+  button[type="submit"]:hover {
+    transform: translateY(-2px);
   }
 </style> 
