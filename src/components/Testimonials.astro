@@ -15,7 +15,7 @@ const { testimonials } = companyData;
     
     <div class="relative">
       <div class="testimonials-carousel overflow-hidden">
-        <div class="flex transition-transform duration-500 ease-in-out testimonials-track">
+        <div class="flex transition-transform duration-500 ease-in-out testimonials-track mb-10">
           {testimonials.map((testimonial, index) => (
             <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4 testimonial-card" data-index={index}>
               <div class="bg-white p-8 rounded-xl shadow-lg h-full">
@@ -186,7 +186,6 @@ const { testimonials } = companyData;
   
   .testimonial-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
   
   .prev-button,

@@ -142,18 +142,20 @@ export const companyData = {
 
   // Contacto y ubicación
   contact: {
+    phone: "+595 123 456 789",
+    email: "contacto@example.com",
     address: {
-      street: "Calle de la Innovación 123",
-      city: "Madrid",
-      state: "Madrid",
-      zipCode: "28001",
-      country: "España"
+      street: "Av. 12 de Octubre 123",
+      city: "Encarnación",
+      state: "Itapúa",
+      zipCode: "34000",
+      country: "Paraguay"
     },
     socialMedia: {
-      linkedin: "https://linkedin.com/company/nexustech",
-      twitter: "https://twitter.com/nexustech",
-      facebook: "https://facebook.com/nexustech",
-      instagram: "https://instagram.com/nexustech"
+      linkedin: "#",
+      twitter: "#",
+      facebook: "#",
+      instagram: "#"
     }
   }
 }; 

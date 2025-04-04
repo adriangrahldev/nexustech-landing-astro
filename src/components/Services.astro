@@ -4,7 +4,8 @@ import { companyData } from '../data/data.js';
 const { services } = companyData;
 ---
 
-<section id="servicios" class="py-20 bg-gray-50">
+<section id="servicios" class="py-20 bg-primary relative">
+  <div class="absolute inset-0 bg-white rounded-b-[30px]"></div>
   <div class="container mx-auto px-6">
     <div class="text-center mb-16">
       <h2 class="text-4xl font-bold mb-4 services-title">Nuestros Servicios</h2>
@@ -125,6 +126,15 @@ const { services } = companyData;
 </script>
 
 <style>
+
+  #servicios::backdrop{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 10px;
+    background-color: #000;
+  }
+  
   .service-card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
