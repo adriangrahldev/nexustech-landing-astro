@@ -1,4 +1,4 @@
-# TrackFlow Landing Page
+# NexusTech Landing Page
 
 Una landing page moderna y atractiva para servicios tecnológicos, construida con Astro y Tailwind CSS. Diseñada con un enfoque en la experiencia de usuario, animaciones fluidas y rendimiento optimizado.
 
