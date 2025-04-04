@@ -1,0 +1,145 @@
+---
+import { companyData } from '../data/data.js';
+
+const { services } = companyData;
+---
+
+<section id="servicios" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl font-bold mb-4 services-title">Nuestros Servicios</h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto services-subtitle">
+        Soluciones tecnológicas innovadoras para impulsar tu negocio al siguiente nivel
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      {services.map((service, index) => (
+        <div class="bg-white p-8 rounded-xl shadow-lg service-card" data-index={index}>
+          <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-lg flex items-center justify-center mb-6 service-icon">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {service.icon === "brain" && (
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+              )}
+              {service.icon === "cloud" && (
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+              )}
+              {service.icon === "shield" && (
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              )}
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-4 service-name">{service.name}</h3>
+          <p class="text-gray-600 mb-6 service-description">{service.description}</p>
+          <ul class="text-gray-600 space-y-3 service-features">
+            {service.features.map((feature) => (
+              <li class="flex items-center">
+                <svg class="w-5 h-5 mr-3 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                {feature}
+              </li>
+            ))}
+          </ul>
+          <div class="mt-8">
+            <a href="#contacto" class="inline-flex items-center text-primary font-medium hover:text-primary-dark transition-colors duration-300">
+              Saber más
+              <svg class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  
+  gsap.registerPlugin(ScrollTrigger);
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    // Animate section title and subtitle
+    gsap.from('.services-title', {
+      y: 50,
+      opacity: 0,
+      duration: 0.8,
+      scrollTrigger: {
+        trigger: '.services-title',
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
+      }
+    });
+    
+    gsap.from('.services-subtitle', {
+      y: 30,
+      opacity: 0,
+      duration: 0.8,
+      delay: 0.2,
+      scrollTrigger: {
+        trigger: '.services-subtitle',
+        start: 'top 80%',
+        toggleActions: 'play none none reverse'
+      }
+    });
+    
+    // Animate service cards
+    const serviceCards = document.querySelectorAll('.service-card');
+    
+    serviceCards.forEach((card, index) => {
+      gsap.from(card, {
+        y: 100,
+        opacity: 0,
+        duration: 0.8,
+        delay: index * 0.2,
+        scrollTrigger: {
+          trigger: card,
+          start: 'top 80%',
+          toggleActions: 'play none none reverse'
+        }
+      });
+    });
+    
+    // Add hover effect to service cards
+    serviceCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        gsap.to(card, {
+          y: -10,
+          boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+          duration: 0.3
+        });
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        gsap.to(card, {
+          y: 0,
+          boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+          duration: 0.3
+        });
+      });
+    });
+  });
+</script>
+
+<style>
+  .service-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  
+  .service-icon {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .service-card:hover .service-icon {
+    transform: scale(1.1);
+    background-color: rgba(59, 130, 246, 0.2);
+  }
+</style> 
