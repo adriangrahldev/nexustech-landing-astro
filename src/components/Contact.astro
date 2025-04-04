@@ -52,7 +52,9 @@ const { contact } = companyData;
               </div>
               <div>
                 <h4 class="font-semibold mb-1">Dirección</h4>
-                <p class="text-gray-600">{contact.address}</p>
+                <p class="text-gray-600">
+                  {contact.address.street}, {contact.address.city}, {contact.address.state} {contact.address.zipCode}, {contact.address.country}
+                </p>
               </div>
             </div>
           </div>
@@ -151,8 +153,8 @@ const { contact } = companyData;
     });
     
     // Form validation
-    const form = document.getElementById('contactForm');
-    const inputs = form.querySelectorAll('input, textarea');
+    const form = document.getElementById('contactForm') as HTMLFormElement;
+    const inputs = form.querySelectorAll('input, textarea') as NodeListOf<HTMLInputElement | HTMLTextAreaElement>;
     
     function validateEmail(email) {
       const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

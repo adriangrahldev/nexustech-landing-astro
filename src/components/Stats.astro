@@ -1,6 +1,8 @@
+---
 import { companyData } from '../data/data.js';
 
 const { stats } = companyData;
+---
 
 <section id="estadisticas" class="py-20 bg-primary text-white">
   <div class="container mx-auto px-6">
@@ -73,10 +75,10 @@ const { stats } = companyData;
     });
     
     // Animate stat values
-    const statValues = document.querySelectorAll('.stat-value');
+    const statValues = document.querySelectorAll('.stat-value') as NodeListOf<HTMLElement>;
     
     statValues.forEach(stat => {
-      const targetValue = parseInt(stat.dataset.value);
+      const targetValue = parseInt(stat.dataset.value || '0');
       const duration = 2;
       const steps = 60;
       const stepValue = targetValue / steps;
