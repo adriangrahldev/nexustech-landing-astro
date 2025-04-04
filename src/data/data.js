@@ -137,7 +137,14 @@ export const companyData = {
       company: "Startup Innovadora",
       content: "La implementación de sus soluciones de IA nos permitió automatizar procesos que antes consumían horas de trabajo manual.",
       image: "/images/testimonials/juan-perez.jpg"
-    }
+    },
+    {
+      name: "Ana Martínez",
+      position: "Directora de Innovación",
+      company: "Tech Solutions SA",
+      content: "Su equipo demostró un profundo conocimiento en ciberseguridad. Nos ayudaron a fortalecer significativamente nuestra postura de seguridad.",
+      image: "/images/testimonials/ana-martinez.jpg"
+    },
   ],
 
   // Contacto y ubicación
