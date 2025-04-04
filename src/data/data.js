@@ -81,25 +81,24 @@ export const companyData = {
   ],
 
   // Estadísticas y logros
-  stats: {
-    clients: 500,
-    projects: 1200,
-    teamMembers: 150,
-    countries: 12,
-    satisfactionRate: 98,
-    awards: [
-      {
-        year: 2023,
-        name: "Mejor Empresa Tech del Año",
-        organization: "Tech Awards España"
-      },
-      {
-        year: 2022,
-        name: "Innovación en IA",
-        organization: "European Tech Summit"
-      }
-    ]
-  },
+  stats: [
+    {
+      value: 500,
+      label: "Clientes Satisfechos"
+    },
+    {
+      value: 1200,
+      label: "Proyectos Completados"
+    },
+    {
+      value: 150,
+      label: "Miembros del Equipo"
+    },
+    {
+      value: 12,
+      label: "Países Alcanzados"
+    }
+  ],
 
   // Equipo directivo
   leadership: [
@@ -129,14 +128,14 @@ export const companyData = {
       name: "María González",
       position: "Directora de TI",
       company: "Global Retail Corp",
-      text: "NexusTech transformó completamente nuestra infraestructura tecnológica. Su enfoque innovador y atención al detalle son excepcionales.",
+      content: "NexusTech transformó completamente nuestra infraestructura tecnológica. Su enfoque innovador y atención al detalle son excepcionales.",
       image: "/images/testimonials/maria-gonzalez.jpg"
     },
     {
       name: "Juan Pérez",
       position: "CEO",
       company: "Startup Innovadora",
-      text: "La implementación de sus soluciones de IA nos permitió automatizar procesos que antes consumían horas de trabajo manual.",
+      content: "La implementación de sus soluciones de IA nos permitió automatizar procesos que antes consumían horas de trabajo manual.",
       image: "/images/testimonials/juan-perez.jpg"
     }
   ],
