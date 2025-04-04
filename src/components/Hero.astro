@@ -53,7 +53,7 @@ const { company, mission } = companyData;
       </div>
 
       <!-- Métricas destacadas -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 w-full max-w-4xl mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 mb-16 md:mb-0 w-full max-w-4xl mx-auto">
         {Object.entries(company.metrics || {
           clientes: "500+",
           proyectos: "1.2K+",
@@ -70,10 +70,10 @@ const { company, mission } = companyData;
   </div>
   
   <!-- Indicador de scroll mejorado -->
-  <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2">
+  <div class="absolute bottom-4 md:bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 z-20">
     <span class="text-white/60 text-sm">Descubre más</span>
     <div class="w-6 h-10 border-2 border-white/30 rounded-full p-1">
-      <div class="w-1.5 h-1.5 bg-white rounded-full animate-scroll"></div>
+      <div class="w-1.5 h-1.5 bg-white rounded-full animate-scroll mx-auto"></div>
     </div>
   </div>
 </section>
